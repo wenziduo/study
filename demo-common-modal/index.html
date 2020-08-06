@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .modal-outer {
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: #fff;
+    display: none;
+  }
+  .modal-outer > .modal-position > .modal-position-closeX {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .modal-outer > .modal-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  .modal-outer > .modal-content {
+    padding: 10px 15px;
+    min-height: 60px;
+  }
+  .modal-outer > .modal-footer {
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+  }
+  .modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    display: none;
+  }
+</style>
+<body>
+  <button id="btn">点我</button>
+  <script src="./index.js"></script>
+  <script>
+    const btn1Modal = ModalPlugin({
+      buttons: [{
+        text: '取消',
+        close,
+        onClick() {
+          console.log('取消')
+        }
+      }, {
+        text: '确定',
+        onClick() {
+          console.log('确定')
+        }
+      }]
+    })
+    const btn = document.getElementById('btn');
+    btn.onclick = function() {
+      btn1Modal.open()
+    }
+  </script>
+</body>
+</html>
